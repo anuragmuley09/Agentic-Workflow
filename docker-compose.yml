@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: budget_agent
+    ports:
+      - "5433:5432" # the host and docker port should be same lmao, but i might have other services utilizing 5432 thats why 5433 is used here, lol
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

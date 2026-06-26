@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BudgetBuddy - Smart Finance Planning</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="dark-theme"> <!-- Toggled between dark-theme and light-theme by JS -->
+
+    <!-- ========================================== -->
+    <!-- VIEW 1: LANDING PAGE (#landing) -->
+    <!-- ========================================== -->
+    <div id="view-landing" class="view-container active">
+      <!-- Navbar -->
+      <nav class="landing-nav">
+        <div class="landing-logo">
+          <div class="logo-box">
+            <svg class="logo-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+              <polyline points="16 7 22 7 22 13" />
+            </svg>
+          </div>
+          <div class="logo-name">
+            <h3>BudgetBuddy</h3>
+            <span>SMART FINANCE PLANNING</span>
+          </div>
+        </div>
+        <div class="landing-links">
+          <a href="#landing">Features</a>
+          <a href="#landing">Preview</a>
+          <a href="#landing">Why it works</a>
+        </div>
+        <div class="landing-actions">
+          <a href="#login" class="btn-login-link">Log in</a>
+          <a href="#login" class="btn-get-started">Get started &rarr;</a>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <div class="hero-split">
+        <!-- Left Side Hero -->
+        <div class="hero-left">
+          <div class="sparkle-pill">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z"/></svg>
+            <span>Plan goals with more structure and less guesswork</span>
+          </div>
+          <h1>A clearer way to plan, track, and reach your financial goals.</h1>
+          <p class="hero-subtext">
+            BudgetBuddy helps users turn financial goals into practical action plans. Set a target, understand what needs to change, and track progress in one focused experience.
+          </p>
+          <div class="hero-buttons">
+            <a href="#login" class="btn-hero-primary">Create your account &rarr;</a>
+            <a href="#landing" class="btn-hero-secondary">See how it works</a>
+          </div>
+          <div class="hero-tags">
+            <div class="tag-card">
+              <span>Planning</span>
+              <strong>Goal-first</strong>
+            </div>
+            <div class="tag-card">
+              <span>Guidance</span>
+              <strong>Actionable</strong>
+            </div>
+            <div class="tag-card">
+              <span>Progress</span>
+              <strong>Visible</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side Hero Visual Widgets -->
+        <div class="hero-right">
+          <!-- Widget 1: Goal Progress -->
+          <div class="hero-widget progress-widget">
+            <div class="widget-header">
+              <div>
+                <span>Goal progress</span>
+                <h2>68%</h2>
+              </div>
+              <div class="widget-icon-circle blue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              </div>
+            </div>
+            <div class="progress-bar-container-mini">
+              <div class="progress-bar-fill-mini" style="width: 68%"></div>
+            </div>
+            <div class="widget-footer-row">
+              <span>Saved Rs 54,400</span>
+              <span>Target Rs 79,999</span>
+            </div>
+          </div>
+
+          <!-- Widget 2: Chat Assistant Preview -->
+          <div class="hero-widget assistant-widget">
+            <div class="widget-header">
+              <div class="header-chat-meta">
+                <div class="widget-icon-circle green">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div>
+                  <h4>Smart planning assistant</h4>
+                  <span>Guided goal creation</span>
+                </div>
+              </div>
+            </div>
+            <div class="chat-preview-box">
+              <div class="chat-bubble user">I want to save for a new phone by March next year.</div>
+              <div class="chat-bubble bot">I can help with that. Let us define your target amount, timeline, and where you can free up monthly savings.</div>
+            </div>
+          </div>
+
+          <!-- Widget 3 & 4: Stats -->
+          <div class="widget-row">
+            <div class="hero-widget stat-widget">
+              <span>Monthly savings target</span>
+              <h3>Rs 12,000</h3>
+            </div>
+            <div class="hero-widget stat-widget">
+              <span>Recommended focus</span>
+              <h3>Food + subscriptions</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- VIEW 2: WELCOME BACK / LOGIN (#login) -->
+    <!-- ========================================== -->
+    <div id="view-login" class="view-container">
+      <div class="login-split">
+        <!-- Left Side Login Screen -->
+        <div class="login-left">
+          <div class="landing-logo">
+            <div class="logo-box bg-blue">
+              <svg class="logo-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                <polyline points="16 7 22 7 22 13" />
+              </svg>
+            </div>
+            <div class="logo-name">
+              <h3 class="text-white">BudgetBuddy</h3>
+              <span class="text-secondary">Smart Finance Management</span>
+            </div>
+          </div>
+          <div class="login-left-content">
+            <h1>Master your wealth with precision.</h1>
+            <p>Join over 50,000 professionals who use BudgetBuddy to track, invest, and grow their capital.</p>
+            
+            <div class="growth-card">
+              <span>Portfolio Growth</span>
+              <div class="growth-value-row">
+                <h2>$124,500.00</h2>
+                <span class="text-green font-bold">+18.2%</span>
+              </div>
+              <!-- Chart Visual SVG -->
+              <svg class="chart-svg" viewBox="0 0 300 100">
+                <path d="M10,80 Q50,40 100,55 T200,20 T290,40" fill="none" stroke="#3b82f6" stroke-width="4" stroke-linecap="round"></path>
+                <circle cx="200" cy="20" r="6" fill="#3b82f6"></circle>
+              </svg>
+              <div class="chart-months">
+                <span>JAN</span>
+                <span>MAR</span>
+                <span>MAY</span>
+                <span>JUL</span>
+                <span>SEP</span>
+                <span>NOV</span>
+              </div>
+            </div>
+          </div>
+          <div class="login-left-footer">
+            <p>&copy; 2024 BudgetBuddy Technologies Inc. All rights reserved.</p>
+          </div>
+        </div>
+
+        <!-- Right Side Login Form -->
+        <div class="login-right">
+          <div class="login-right-inner">
+            <a href="#landing" class="btn-back-home">&larr; Back to home</a>
+            
+            <h2>Welcome Back</h2>
+            <p class="subtitle">Log in to manage your financial goals.</p>
+            
+            <div class="social-row">
+              <button type="button" class="btn-social">Google login not configured</button>
+              <button type="button" class="btn-social">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="apple-icon"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.21.67-2.93 1.49-.62.69-1.16 1.84-1.01 2.96 1.12.09 2.27-.57 2.95-1.38z"/></svg>
+                Apple coming soon
+              </button>
+            </div>
+            
+            <div class="login-divider">
+              <span>Or continue with email</span>
+            </div>
+            
+            <form id="loginForm" class="login-form">
+              <div class="form-group-login">
+                <label>Email Address</label>
+                <div class="input-icon-container">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="input-icon"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  <input type="email" id="loginEmail" placeholder="name@company.com" required value="rohanmali@gmail.com" />
+                </div>
+              </div>
+
+              <div class="form-group-login">
+                <div class="label-row-forgot">
+                  <label>Password</label>
+                  <a href="#login" class="forgot-link">Forgot password?</a>
+                </div>
+                <div class="input-icon-container">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="input-icon"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  <input type="password" id="loginPassword" placeholder="********" required value="password123" />
+                  <span class="password-toggle-eye" id="togglePasswordEye">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                  </span>
+                </div>
+              </div>
+
+              <div class="form-group-login">
+                <label>Phone Number (optional for signup)</label>
+                <div class="input-icon-container">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="input-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <input type="tel" id="loginPhone" placeholder="17722073804" />
+                </div>
+              </div>
+
+              <div class="remember-row">
+                <label class="checkbox-container">
+                  <input type="checkbox" checked />
+                  <span class="checkmark"></span>
+                  Remember for 30 days
+                </label>
+              </div>
+
+              <button type="submit" class="btn-signin-submit">Sign In &rarr;</button>
+            </form>
+            
+            <p class="signup-footer-link">Don't have an account? <a href="#login">Create an account</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- VIEW CONTAINER FOR LOGGED IN APP LAYOUT -->
+    <!-- ========================================== -->
+    <div id="app-layout" class="app-layout-grid hidden">
+      
+      <!-- LEFT APP SIDEBAR (Dark Theme) -->
+      <aside class="app-sidebar">
+        <div class="sidebar-logo">
+          <div class="logo-box bg-blue">
+            <svg class="logo-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+              <polyline points="16 7 22 7 22 13" />
+            </svg>
+          </div>
+          <h2>BudgetBuddy</h2>
+        </div>
+
+        <nav class="sidebar-links-group">
+          <a href="#goals" class="sidebar-link-item" id="sidebarLinkHome">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span>Home</span>
+          </a>
+          <a href="#goals" class="sidebar-link-item active" id="sidebarLinkGoals">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            <span>Goals</span>
+          </a>
+          <a href="#simulator" class="sidebar-link-item" id="sidebarLinkParser">
+            <!-- Reuse Bank/Statement Ingestion inside developer sandbox links -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 10h18M5 6h14M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>
+            <span>Banks</span>
+          </a>
+        </nav>
+
+        <!-- CHAT ASSISTANT SECTION -->
+        <div class="sidebar-section-title">CHAT ASSISTANT</div>
+        <div class="sidebar-chat-sessions">
+          <a href="#chat" class="chat-session-item active">
+            <svg class="icon-chat-bubble" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span>New Goal</span>
+            <div class="chat-item-actions">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            </div>
+          </a>
+        </div>
+
+        <a href="#chat" class="btn-sidebar-add-goal">+ Add New Goal</a>
+
+        <!-- PROFILE DRAWER INITIATOR (At Bottom) -->
+        <div class="sidebar-bottom-profile" id="sidebarProfileTrigger">
+          <div class="profile-avatar">R</div>
+          <div class="profile-meta">
+            <span class="name" id="userDisplayName">rohanmali</span>
+            <span class="subtext">Profile & Settings</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- PROFILE & SETTINGS SLIDE-OUT PANEL (Absolute drawer, shown/hidden) -->
+      <div class="profile-drawer-overlay hidden" id="profileDrawerOverlay"></div>
+      <div class="profile-drawer-container hidden" id="profileDrawer">
+        <div class="drawer-user-info">
+          <div class="profile-avatar large">R</div>
+          <div class="drawer-user-meta">
+            <h4 id="drawerUserName">rohanmali</h4>
+            <p id="drawerUserEmail">rohanmali@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="drawer-section">
+          <h5>ACCOUNT CONTROLS</h5>
+          <div class="drawer-control-item">
+            <div class="control-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <div>
+                <span>Email Address</span>
+                <p id="controlUserEmail">rohanmali@gmail.com</p>
+              </div>
+            </div>
+            <button class="btn-drawer-action" id="btnEditEmail">Edit</button>
+          </div>
+
+          <div class="drawer-control-item">
+            <div class="control-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <div>
+                <span>Phone Number</span>
+                <p id="controlUserPhone">17722073804</p>
+              </div>
+            </div>
+            <button class="btn-drawer-action" id="btnEditPhone">Edit</button>
+          </div>
+        </div>
+
+        <div class="drawer-section">
+          <h5>SETTINGS</h5>
+          <div class="drawer-toggle-item">
+            <div class="toggle-info">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              <div>
+                <span>Notifications</span>
+                <p>Goal alerts and updates</p>
+              </div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="toggleNotifications" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="drawer-toggle-item">
+            <div class="toggle-info">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              <div>
+                <span>Expense tracking</span>
+                <p>Monitor spending vs goals</p>
+              </div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="toggleExpenseTracking">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+
+        <button class="btn-drawer-signout" id="btnDrawerSignout">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Sign out
+        </button>
+      </div>
+
+
+      <!-- RIGHT APP CONTENT BODY (Light Theme) -->
+      <main class="app-main-window">
+
+        <!-- ========================================== -->
+        <!-- SUB-VIEW 3: MY GOALS DASHBOARD (#goals) -->
+        <!-- ========================================== -->
+        <div id="subview-goals" class="app-subview-pane active">
+          <!-- Top bar inside goals -->
+          <div class="app-top-header">
+            <div class="header-left-title">
+              <button class="btn-header-back" id="btnGoalsBack">&larr;</button>
+              <div class="title-meta">
+                <div class="goal-header-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                </div>
+                <div>
+                  <h2>My Goals</h2>
+                  <span>Track all your financial goals</span>
+                </div>
+              </div>
+            </div>
+            <a href="#chat" class="btn-top-new-goal">New Goal</a>
+          </div>
+
+          <!-- EMPTY STATE SCREEN: NO GOALS YET -->
+          <div class="dashboard-empty-state card-panel hidden" id="goalsEmptyState">
+            <div class="empty-state-inner">
+              <div class="empty-target-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg>
+              </div>
+              <h3>No Goals Yet</h3>
+              <p>Start your financial journey by creating your first goal!</p>
+              <a href="#chat" class="btn-create-first-goal">Create Your First Goal</a>
+            </div>
+          </div>
+
+          <!-- ACTIVE GOAL FILLED STATE -->
+          <div id="goalsFilledState">
+            <!-- KPI Counters Row -->
+            <div class="goals-kpi-row">
+              <div class="kpi-card-simple card-panel">
+                <div class="kpi-content-simple">
+                  <span>Total Goals</span>
+                  <h2 id="kpiTotalGoals">1</h2>
+                </div>
+                <div class="kpi-icon-simple blue">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                </div>
+              </div>
+
+              <div class="kpi-card-simple card-panel">
+                <div class="kpi-content-simple">
+                  <span>Completed</span>
+                  <h2 id="kpiCompletedGoals">0</h2>
+                </div>
+                <div class="kpi-icon-simple green">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+              </div>
+
+              <div class="kpi-card-simple card-panel">
+                <div class="kpi-content-simple">
+                  <span>On Track</span>
+                  <h2 id="kpiOnTrackGoals">0</h2>
+                </div>
+                <div class="kpi-icon-simple blue">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+              </div>
+
+              <div class="kpi-card-simple card-panel">
+                <div class="kpi-content-simple">
+                  <span>Needs Focus</span>
+                  <h2 id="kpiNeedsFocusGoals">1</h2>
+                </div>
+                <div class="kpi-icon-simple orange">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Active Goals Card -->
+            <div class="active-goals-section-title" id="activeGoalsSectionTitle">Active Goals</div>
+            <div class="active-goal-main-card card-panel" id="activeGoalsMainCard">
+              <div class="active-goal-top-row">
+                <div class="goal-number-badge">1</div>
+                <div class="goal-details-info">
+                  <h3 id="activeGoalName">i want to buy a new iphone</h3>
+                  <div class="goal-sub-text">
+                    <span class="icon-text">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                      Deadline passed
+                    </span>
+                    <span class="bullet">&bull;</span>
+                    <span id="activeGoalTarget">Target: ₹79,999</span>
+                  </div>
+                </div>
+                <div class="goal-status-badge-container">
+                  <span class="goal-risk-badge red" id="activeGoalStatusBadge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    At Risk
+                  </span>
+                  <button class="btn-delete-icon" id="btnDeleteActiveGoal" title="Delete goal" style="margin-left: 10px; color: #94a3b8;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px;"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                  </button>
+                  <svg class="chevron-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+                </div>
+              </div>
+
+              <!-- Main Progress -->
+              <div class="goal-progress-bar-row">
+                <div class="progress-bar-labels">
+                  <span>Progress</span>
+                  <strong id="activeGoalProgressPct">0.0%</strong>
+                </div>
+                <div class="progress-bar-full-width">
+                  <div class="progress-bar-inner-fill" id="activeGoalProgressFill" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <!-- Saved & Remaining Panels -->
+              <div class="saved-remaining-grid">
+                <div class="amount-summary-panel blue">
+                  <span>Saved</span>
+                  <h4 id="activeGoalSaved">₹0</h4>
+                </div>
+                <div class="amount-summary-panel grey">
+                  <span>Remaining</span>
+                  <h4 id="activeGoalRemaining">₹79,999</h4>
+                </div>
+              </div>
+            </div>
+
+            <!-- Goal Dashboard (Details visualizer) -->
+            <div class="active-goals-section-title" id="goalDashboardSectionTitle">Goal Dashboard</div>
+            <div class="goals-dashboard-details-grid">
+              
+              <!-- Left Panel: Current Monthly Spending -->
+              <div class="dashboard-details-card card-panel">
+                <h3>Current Monthly Spending</h3>
+                
+                <div class="chart-and-legend-container">
+                  <!-- SVG Circular Pie Chart -->
+                  <div class="chart-wrapper">
+                    <svg class="pie-chart-svg" viewBox="0 0 100 100">
+                      <!-- Red sector: Food Delivery 31% -->
+                      <circle cx="50" cy="50" r="40" fill="transparent" stroke="#fa5252" stroke-width="12" stroke-dasharray="77.9 173.3" stroke-dashoffset="0"></circle>
+                      <!-- Orange sector: Groceries 21% -->
+                      <circle cx="50" cy="50" r="40" fill="transparent" stroke="#f59f00" stroke-width="12" stroke-dasharray="52.7 198.5" stroke-dashoffset="-77.9"></circle>
+                      <!-- Transport sector: 12% -->
+                      <circle cx="50" cy="50" r="40" fill="transparent" stroke="#1c7ed6" stroke-width="12" stroke-dasharray="30.1 221.1" stroke-dashoffset="-130.6"></circle>
+                      <!-- Shopping sector: 15% -->
+                      <circle cx="50" cy="50" r="40" fill="transparent" stroke="#d63384" stroke-width="12" stroke-dasharray="37.7 213.5" stroke-dashoffset="-160.7"></circle>
+                      <!-- Entertainment sector: 9% -->
+                      <circle cx="50" cy="50" r="40" fill="transparent" stroke="#7048e8" stroke-width="12" stroke-dasharray="22.6 228.6" stroke-dashoffset="-198.4"></circle>
+                      <!-- Others sector: 13% -->
+                      <circle cx="50" cy="50" r="40" fill="transparent" stroke="#868e96" stroke-width="12" stroke-dasharray="32.8 218.4" stroke-dashoffset="-221"></circle>
+                    </svg>
+                    <!-- Text labels layered on chart (represented in legend below) -->
+                  </div>
+
+                  <!-- Legend -->
+                  <div class="legend-list-group">
+                    <div class="legend-item-row">
+                      <div class="legend-label"><span class="dot bg-red"></span> Food Delivery 31%</div>
+                      <strong>₹12,000</strong>
+                    </div>
+                    <div class="legend-item-row">
+                      <div class="legend-label"><span class="dot bg-orange"></span> Groceries 21%</div>
+                      <strong>₹8,000</strong>
+                    </div>
+                    <div class="legend-item-row">
+                      <div class="legend-label"><span class="dot bg-purple"></span> Entertainment 9%</div>
+                      <strong>₹3,500</strong>
+                    </div>
+                    <div class="legend-item-row">
+                      <div class="legend-label"><span class="dot bg-blue"></span> Transport 12%</div>
+                      <strong>₹4,500</strong>
+                    </div>
+                    <div class="legend-item-row">
+                      <div class="legend-label"><span class="dot bg-pink"></span> Shopping 15%</div>
+                      <strong>₹6,000</strong>
+                    </div>
+                    <div class="legend-item-row">
+                      <div class="legend-label"><span class="dot bg-grey"></span> Others 13%</div>
+                      <strong>₹5,000</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Panel: Required Expense Cuts -->
+              <div class="dashboard-details-card card-panel" id="requiredCutsCard">
+                <h3>Required Expense Cuts</h3>
+
+                <div class="expense-cuts-list">
+                  
+                  <div class="cut-item-row">
+                    <div class="cut-label-row">
+                      <span>Food Delivery</span>
+                      <strong class="text-red">-₹8,000</strong>
+                    </div>
+                    <div class="cut-sub-row">Current: ₹12,000 &rarr; Target: ₹4,000</div>
+                    <div class="progress-bar-bg small">
+                      <div class="progress-bar-fill normal bg-dark-blue" style="width: 33%"></div>
+                    </div>
+                  </div>
+
+                  <div class="cut-item-row">
+                    <div class="cut-label-row">
+                      <span>Entertainment</span>
+                      <strong class="text-red">-₹2,500</strong>
+                    </div>
+                    <div class="cut-sub-row">Current: ₹3,500 &rarr; Target: ₹1,000</div>
+                    <div class="progress-bar-bg small">
+                      <div class="progress-bar-fill normal bg-dark-blue" style="width: 28%"></div>
+                    </div>
+                  </div>
+
+                  <div class="cut-item-row">
+                    <div class="cut-label-row">
+                      <span>Groceries</span>
+                      <strong class="text-red">-₹1,500</strong>
+                    </div>
+                    <div class="cut-sub-row">Current: ₹8,000 &rarr; Target: ₹6,500</div>
+                    <div class="progress-bar-bg small">
+                      <div class="progress-bar-fill normal bg-dark-blue" style="width: 81%"></div>
+                    </div>
+                  </div>
+
+                  <!-- Green and Blue Saving Banners -->
+                  <div class="savings-banner-green mt-15">
+                    <div class="banner-flex-row">
+                      <div>
+                        <span>Total Monthly Savings</span>
+                        <p>By following these cuts, you'll save ₹12,000/month</p>
+                      </div>
+                      <h3 class="text-green-bold">₹12,000</h3>
+                    </div>
+                  </div>
+
+                  <div class="savings-banner-blue mt-10">
+                    <div class="banner-flex-row">
+                      <div>
+                        <span>Months to Goal</span>
+                        <p>At ₹12,000/month, you'll reach your goal in 7 months</p>
+                      </div>
+                      <h3 class="text-blue-bold">7</h3>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Plan (checklists) -->
+            <div class="active-goals-section-title" id="actionPlanSectionTitle">Action Plan</div>
+            <div class="action-plan-container card-panel" id="actionPlanCard">
+              <div class="action-plan-checklist">
+                
+                <div class="plan-check-item">
+                  <div class="plan-circle-num">1</div>
+                  <div class="plan-check-text">
+                    Week 1-2: Switch to home-cooked meals 5 days/week (Save ₹4,000)
+                  </div>
+                </div>
+
+                <div class="plan-check-item">
+                  <div class="plan-circle-num">2</div>
+                  <div class="plan-check-text">
+                    Week 3-4: Cancel unused subscriptions (Netflix, Spotify - Save ₹1,200)
+                  </div>
+                </div>
+
+                <div class="plan-check-item">
+                  <div class="plan-circle-num">3</div>
+                  <div class="plan-check-text">
+                    Monthly: Use grocery shopping list & buy in bulk (Save ₹1,500)
+                  </div>
+                </div>
+
+                <div class="plan-check-item">
+                  <div class="plan-circle-num">4</div>
+                  <div class="plan-check-text">
+                    Set up automatic transfer of ₹12,000 to savings on payday
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Interactive Budget Limits Controls -->
+            <div class="active-goals-section-title">Category Budgets & Limits</div>
+            <div class="budgets-card card-panel">
+              <div class="budgets-grid" id="budgetsSlidersGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;">
+                <!-- Dynamically generated sliders inside JS -->
+              </div>
+            </div>
+
+            <!-- Trends & Analytics -->
+            <div class="active-goals-section-title">Trends & Analytics</div>
+            <div class="trends-card card-panel">
+              <div class="trends-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start;">
+                <div class="chart-container">
+                  <h3 style="font-size: 16px; margin-bottom: 15px; color: var(--text-main);">Budget vs Actual Spending</h3>
+                  <div id="budgetVsActualChart" style="background-color: var(--bg-panel-grey); border-radius: 12px; padding: 15px; border: 1px dashed var(--border-app);"></div>
+                </div>
+                <div class="chart-container">
+                  <h3 style="font-size: 16px; margin-bottom: 15px; color: var(--text-main);">Monthly Spending Trend</h3>
+                  <div id="monthlyTrendChart" style="background-color: var(--bg-panel-grey); border-radius: 12px; padding: 15px; border: 1px dashed var(--border-app);"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ledger & Transaction Manager -->
+            <div class="active-goals-section-title">Ledger & Transaction Manager</div>
+            <div class="ledger-card card-panel">
+              <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Description</th>
+                      <th>Amount</th>
+                      <th>Category</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="ledgerTableBody">
+                    <tr>
+                      <td colspan="5" class="no-data-cell" style="text-align: center; padding: 20px;">No transactions recorded.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SUB-VIEW 4: NEW GOAL CHAT ASSISTANT (#chat) -->
+        <!-- ========================================== -->
+        <div id="subview-chat" class="app-subview-pane">
+          <!-- Chat header -->
+          <div class="chat-header-row border-bottom">
+            <div class="header-chat-meta">
+              <div class="widget-icon-circle blue small-pad">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <div>
+                <h4>New Goal</h4>
+                <span>Multi-source conversational analysis</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chat body -->
+          <div class="chat-messages-container" id="chatMessagesWindow">
+            <div class="chat-welcome-box">
+              <p>Hello! I'm your personal finance assistant. Tell me about a financial goal you'd like to achieve!</p>
+            </div>
+            <!-- Conversation dynamic content -->
+          </div>
+
+          <!-- Chat prompt area -->
+          <div class="chat-input-bar-container">
+            <form id="chatPromptForm" class="chat-prompt-flex">
+              <input type="text" id="chatInputText" placeholder="e.g., Save ₹100,000 for a laptop in 6 months" required autocomplete="off" />
+              <button type="submit" class="btn-chat-send">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SUB-VIEW 5: DEV CONSOLE & WEBHOOK SIM (#simulator) -->
+        <!-- ========================================== -->
+        <div id="subview-simulator" class="app-subview-pane">
+          <div class="dev-banner-row">
+            <div>
+              <h2>System Sandbox & Sandbox Logs</h2>
+              <span>Simulate transactions, webhooks, and upload statements. Toggle configurations.</span>
+            </div>
+            <div class="status-indicator online">
+              <span class="dot"></span>
+              <span>FastAPI Port 8000</span>
+            </div>
+          </div>
+
+          <!-- Developer Content Layout (Original full interactive features) -->
+          <div class="grid-layout cols-2-1">
+            <!-- Left Panel -->
+            <div class="grid-col main-panel">
+              <div class="dashboard-card bg-card-light">
+                <div class="card-header border-bottom">
+                  <h3>Configure Event Simulator</h3>
+                  <div class="toggle-group">
+                    <button class="toggle-btn active" id="toggleDevTx">Simulate Purchase</button>
+                    <button class="toggle-btn" id="toggleDevPlaid">Plaid Webhook</button>
+                  </div>
+                </div>
+
+                <form id="devSimForm" class="sim-form-grid">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="devSimMerchant">Merchant</label>
+                      <input id="devSimMerchant" value="Croma Electronics" required />
+                    </div>
+                    <div class="form-group">
+                      <label for="devSimAmount">Amount (₹)</label>
+                      <input id="devSimAmount" type="number" min="1" value="45000" required />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="devSimCategory">Category</label>
+                      <select id="devSimCategory">
+                        <option>Personal</option>
+                        <option>Food</option>
+                        <option>Entertainment</option>
+                        <option>Transportation</option>
+                        <option>Healthcare</option>
+                        <option>Housing</option>
+                        <option>Utilities</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+                    <div class="form-group flex-end">
+                      <div class="preset-row">
+                        <button type="button" class="btn-preset" data-preset="food">Food Order</button>
+                        <button type="button" class="btn-preset" data-preset="cab">Cab Ride</button>
+                        <button type="button" class="btn-preset" data-preset="gadget">Buy Laptop</button>
+                        <button type="button" class="btn-preset" data-preset="netflix">Netflix</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="devWebhookFields" class="form-row hidden border-top pt-15">
+                    <div class="form-group">
+                      <label for="devPlaidCode">Webhook Trigger Code</label>
+                      <select id="devPlaidCode">
+                        <option value="SYNC_UPDATES_AVAILABLE">SYNC_UPDATES_AVAILABLE</option>
+                        <option value="HISTORICAL_UPDATE">HISTORICAL_UPDATE</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="devPlaidStatus">Transaction Status</label>
+                      <select id="devPlaidStatus">
+                        <option value="settled">Settled</option>
+                        <option value="pending">Pending</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-actions">
+                    <button id="btnDevSimSubmit" class="btn btn-primary btn-block" type="submit">Simulate Event</button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- Upload Statement Area -->
+              <div class="dashboard-card bg-card-light">
+                <div class="card-header">
+                  <h3>Upload Statement Spreadsheet</h3>
+                </div>
+                <div class="dropzone" id="devFileDropzone">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                  <h4>Drag & Drop Bank Statement here</h4>
+                  <p>Supports .CSV, .XLSX, or .PDF statements</p>
+                  <button type="button" class="btn-primary-small" id="btnSelectFileDummyDev">Choose File</button>
+                  <input type="file" id="devFileInput" accept=".csv,.xlsx,.pdf" style="display: none;" />
+                </div>
+                <div class="file-upload-progress hidden" id="devFileProgress">
+                  <div class="file-name-row">
+                    <span id="devFileName">Statement.csv</span>
+                    <span id="devFileProgressPct">0%</span>
+                  </div>
+                  <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="devProgressBar" style="width: 0%"></div>
+                  </div>
+                </div>
+                <div class="quick-sample-area mt-15 border-top pt-15">
+                  <span>Try Sample Bank Statement:</span>
+                  <button type="button" class="btn-outline-small ml-10" id="btnLoadSampleCSVDev">Load transactions_sept.csv</button>
+                </div>
+              </div>
+
+              <!-- Document logs list -->
+              <div class="dashboard-card bg-card-light">
+                <div class="card-header">
+                  <h3>Uploaded Statements List</h3>
+                </div>
+                <div class="table-responsive">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>Filename</th>
+                        <th>Type</th>
+                        <th>Tx Count</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="devDocumentsTableBody">
+                      <tr>
+                        <td colspan="5" class="no-data-cell">No uploaded statements found.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Panel -->
+            <div class="grid-col side-panel">
+              <!-- Output view -->
+              <div class="dashboard-card result-panel hidden" id="devResultPanel">
+                <div class="card-header border-bottom">
+                  <h3>Resulting Logs</h3>
+                  <span id="devResultLatency" class="latency-timer">-- ms</span>
+                </div>
+                <div class="sim-result-details">
+                  <div class="result-status-block">
+                    <div class="severity-icon-badge" id="devResultSeverityBadge"></div>
+                    <div class="result-status-text">
+                      <span id="devResultSeverityText">Medium Severity</span>
+                      <h4 id="devResultTitle">Analysis completed</h4>
+                    </div>
+                  </div>
+                  <p id="devResultMessage" class="result-message-text">Detailed agent response.</p>
+                  
+                  <div class="metrics-comparison-row">
+                    <div class="metric-item">
+                      <span>Safe to Spend</span>
+                      <strong id="devResultSafeToSpend">₹--</strong>
+                    </div>
+                    <div class="metric-item">
+                      <span>Latency</span>
+                      <strong id="devResultLatencyValue">--</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Multi-agent Console display -->
+              <div class="dashboard-card bg-card-light">
+                <div class="card-header border-bottom">
+                  <h3>Orchestrator JSON Console</h3>
+                </div>
+                <div class="agent-selector-column horizontal-nav">
+                  <span class="badge cursor-pointer active" data-dev-agent="extraction">Extraction</span>
+                  <span class="badge cursor-pointer" data-dev-agent="analyzer">Analyzer</span>
+                  <span class="badge cursor-pointer" data-dev-agent="alerts">Alerts</span>
+                  <span class="badge cursor-pointer" data-dev-agent="goals">Goals</span>
+                  <span class="badge cursor-pointer" data-dev-agent="planner">Planner</span>
+                </div>
+                <div class="agent-json-container mt-15">
+                  <pre><code id="devAgentConsoleJson">"No active log runs."</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+
+    <!-- PROFILE MODIFICATIONS POPUP MODAL (Add/Edit) -->
+    <div class="modal-overlay hidden" id="editProfileModal">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>Edit Profile Information</h3>
+          <button class="btn-close" id="btnCloseEditProfileModal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="editProfileForm">
+            <div class="form-group mb-12">
+              <label for="editUserEmailInput">Email Address</label>
+              <input id="editUserEmailInput" type="email" required />
+            </div>
+            <div class="form-group mb-12">
+              <label for="editUserPhoneInput">Phone Number</label>
+              <input id="editUserPhoneInput" type="tel" required />
+            </div>
+            <div class="modal-actions border-top pt-15">
+              <button type="submit" class="btn-signin-submit">Update Details</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
