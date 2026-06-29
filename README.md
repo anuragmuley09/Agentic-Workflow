@@ -4,7 +4,7 @@ BudgetBuddy is a privacy-first, local agentic budgeting application that bridges
 
 ---
 
-## 🏗️ Architecture & Component Overview
+## Architecture & Component Overview
 
 BudgetBuddy is divided into three primary components:
 
@@ -29,7 +29,7 @@ Asynchronous background task workers to handle statement parsing, periodic calcu
 
 ---
 
-## 🛠️ Installation & Setup Guide
+## Installation & Setup Guide
 
 Ensure you have **Docker**, **Node.js (v18+)**, and **Python 3.10+** installed on your system.
 
@@ -95,7 +95,7 @@ Ensure you have **Docker**, **Node.js (v18+)**, and **Python 3.10+** installed o
 
 ---
 
-## 🧪 Verification & Plaid Webhook Simulation
+## Verification & Plaid Webhook Simulation
 
 To test the end-to-end real-time agent execution cycle:
 1. Open the dashboard client on the **Overview Dashboard** or **Budget Goals** page.
