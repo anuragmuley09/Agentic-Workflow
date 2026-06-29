@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, BackgroundTasks
 from pydantic import BaseModel
 from sqlalchemy.ext.asyncio import AsyncSession
 from api.routes import get_db_session
@@ -16,8 +16,21 @@ class SimulatedTransaction(BaseModel):
     category: str
     direction: str = "debit"
 
+
+async def _run_agent_pipeline(initial_state: dict):
+    """Run the multi-agent pipeline in the background."""
+    try:
+        await agent_graph.ainvoke(initial_state)
+    except Exception as e:
+        print(f"[BACKGROUND] Agent pipeline error: {e}")
+
+
 @router.post("/plaid/simulate")
-async def simulate_plaid_webhook(payload: SimulatedTransaction, session: AsyncSession = Depends(get_db_session)):
+async def simulate_plaid_webhook(
+    payload: SimulatedTransaction,
+    background_tasks: BackgroundTasks,
+    session: AsyncSession = Depends(get_db_session)
+):
     # Save simulated transaction to Postgres first so multi-agent flow can ingest it
     db_tx = Transaction(
         user_id=payload.user_id,
@@ -50,8 +63,8 @@ async def simulate_plaid_webhook(payload: SimulatedTransaction, session: AsyncSe
         "alerts": [],
         "financial_plan": {}
     }
-    
-    final_state = await agent_graph.ainvoke(initial_state)
-    nudge_response = final_state["messages"][-1].content
-    
-    return {"status": "processed", "nudge": nudge_response}
+
+    # Fire and forget — UI returns instantly, agent runs in background
+    background_tasks.add_task(_run_agent_pipeline, initial_state)
+
+    return {"status": "processed", "nudge": f"Transaction recorded: {payload.merchant} ₹{payload.amount}. Agent pipeline running in background — refresh dashboard shortly for updated insights."}

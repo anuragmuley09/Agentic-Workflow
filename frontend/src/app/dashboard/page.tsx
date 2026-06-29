@@ -71,6 +71,7 @@ export default function OverviewDashboard() {
   const [data, setData] = useState<DashboardState | null>(null);
   const [loading, setLoading] = useState(true);
   const [mounted, setMounted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   // Manual Transaction Form state
   const [desc, setDesc] = useState("");
@@ -87,9 +88,13 @@ export default function OverviewDashboard() {
       if (response.ok) {
         const result = await response.json();
         setData(result);
+        setError(null);
+      } else {
+        setError(`Backend Error: ${response.status} ${response.statusText}`);
       }
-    } catch (e) {
+    } catch (e: any) {
       console.error("Dashboard fetch error:", e);
+      setError(`Network Error: ${e.message}. Is the backend running?`);
     } finally {
       setLoading(false);
     }
@@ -142,13 +147,35 @@ export default function OverviewDashboard() {
     }
   };
 
-  if (loading || !data) {
+  if (loading) {
     return (
       <div className="flex h-96 items-center justify-center gap-2 text-[var(--text-accent)] bg-[var(--bg-app)]">
         <RefreshCw className="h-6 w-6 animate-spin" />
         <span>Loading financial dataset...</span>
       </div>
     );
+  }
+
+  if (error) {
+    return (
+      <div className="flex h-96 flex-col items-center justify-center gap-4 text-rose-500 bg-[var(--bg-app)]">
+        <div className="flex items-center gap-2">
+          <AlertTriangle className="h-6 w-6" />
+          <span className="font-semibold">Failed to load dashboard data</span>
+        </div>
+        <p className="text-sm text-rose-400">{error}</p>
+        <button 
+          onClick={() => { setLoading(true); setError(null); fetchDashboardData(); }}
+          className="mt-4 px-4 py-2 bg-rose-500/10 hover:bg-rose-500/20 rounded text-rose-500 text-sm font-medium transition-colors"
+        >
+          Try Again
+        </button>
+      </div>
+    );
+  }
+
+  if (!data) {
+    return null;
   }
 
   // Pre-calculate data for charts

@@ -74,8 +74,16 @@ export default function DashboardLayout({
       });
       const data = await response.json();
       setNudgeResult(data.nudge || "Webhook processed. Status: success");
-      // Fire custom event to refresh data in subcomponents
+      // Refresh immediately (transaction is already in DB)
       window.dispatchEvent(new Event("dashboard-update"));
+      // Poll every 10s for up to 90s to catch background pipeline completion
+      let polls = 0;
+      const maxPolls = 9;
+      const pollInterval = setInterval(() => {
+        polls++;
+        window.dispatchEvent(new Event("dashboard-update"));
+        if (polls >= maxPolls) clearInterval(pollInterval);
+      }, 10000);
     } catch (error: any) {
       setNudgeResult(`Simulation failed: ${error.message}`);
     } finally {

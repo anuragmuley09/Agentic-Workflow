@@ -9,6 +9,7 @@ from agent.tools.financial_tools import ToolSessionLocal
 from langchain_core.messages import SystemMessage, AIMessage
 
 llm = get_llm()
+llm_fast = get_llm(fast=True)
 
 async def memory_injection_node(state: AgentFinancialState):
     """Injects historical memory context into the state."""
@@ -113,6 +114,9 @@ async def analyzer_agent_node(state: AgentFinancialState):
     
     if not to_classify:
         return {"analyzed_transactions": txs}
+    
+    # Only classify the 10 most recent uncategorized transactions per run to keep prompts small on CPU
+    to_classify = to_classify[:10]
         
     prompt = (
         "You are a financial transaction classifier. Categorize the following transactions. "
@@ -124,7 +128,7 @@ async def analyzer_agent_node(state: AgentFinancialState):
     for t in to_classify:
         prompt += f"- id: {t['id']}, description: {t['description']}, amount: {t['amount']}\n"
         
-    response = await llm.ainvoke(prompt)
+    response = await llm_fast.ainvoke(prompt)
     content = response.content.strip()
     
     # Strip markdown block wrappers if LLM returned them
@@ -136,10 +140,30 @@ async def analyzer_agent_node(state: AgentFinancialState):
     classified_map = {}
     try:
         results = json.loads(content)
+        # Handle both a single object and a list
+        if isinstance(results, dict):
+            results = [results]
         for item in results:
             classified_map[item["id"]] = item["category"]
-    except Exception as e:
-        print("Failed to parse LLM transaction categorization JSON:", e)
+    except json.JSONDecodeError:
+        # Fallback 1: JSONL (one object per line)
+        for line in content.splitlines():
+            line = line.strip().rstrip(",")
+            if not line:
+                continue
+            try:
+                item = json.loads(line)
+                if "id" in item and "category" in item:
+                    classified_map[item["id"]] = item["category"]
+            except json.JSONDecodeError:
+                continue
+        # Fallback 2: Regex extraction from truncated JSON
+        if not classified_map:
+            pairs = re.findall(r'"id"\s*:\s*"([^"]+)"\s*,\s*"category"\s*:\s*"([^"]+)"', content)
+            for tx_id, cat in pairs:
+                classified_map[tx_id] = cat
+        if not classified_map:
+            print("Failed to parse LLM transaction categorization output:", content[:200])
         
     # Update PostgreSQL DB with categorized values
     async with ToolSessionLocal() as session:
